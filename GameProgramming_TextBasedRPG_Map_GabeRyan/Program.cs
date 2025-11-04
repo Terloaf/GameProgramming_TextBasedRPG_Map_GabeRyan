@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GameProgramming_TextBasedRPG_Map_GabeRyan
@@ -80,124 +81,143 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
         static void DisplayMap(int scale)
         {
 
-            if (scale == 1)
-            {
-                for (int i = 0; i < map.GetLength(0); i++)
-                {
 
 
-                    for (int j = 0; j < map.GetLength(1); j++)
-                    {
-                        Console.SetCursorPosition(1 + j, 1 + i);
-                        Console.Write(map[i, j]);
 
 
-                    }
 
-                    Console.WriteLine();
-                }
 
-                Console.Write("\n");
 
-                for (int i = 0; i < map.GetLength(1); i++)
-                {
-                    Console.SetCursorPosition(i + 1, 0);
-                    Console.Write(boarder[0]);
-                    Console.SetCursorPosition(i + 1, map.GetLength(0) + 1);
-                    Console.Write(boarder[0]);
 
-                }
-                for (int j = 0; j < map.GetLength(0); j++)
-                {
-                    Console.SetCursorPosition(0, j + 1);
-                    Console.Write(boarder[1]);
-                    Console.SetCursorPosition(map.GetLength(1) + 1, j + 1);
-                    Console.Write(boarder[1]);
-                }
-                Console.SetCursorPosition(0, 20);
-            }
+
+
+
+
+
+
+
+//            if (scale == 1)
+//            {
+//                for (int i = 0; i < map.GetLength(0); i++)
+//                {
+
+
+//                    for (int j = 0; j < map.GetLength(1); j++)
+//                    {
+//                        Console.SetCursorPosition(1 + j, 1 + i);
+//                        Console.Write(map[i, j]);
+
+
+//                    }
+
+//                    Console.WriteLine();
+//                }
+
+//                Console.Write("\n");
+
+//                for (int i = 0; i < map.GetLength(1); i++)
+//                {
+//                    Console.SetCursorPosition(i + 1, 0);
+//                    Console.Write(boarder[0]);
+//                    Console.SetCursorPosition(i + 1, map.GetLength(0) + 1);
+//                    Console.Write(boarder[0]);
+
+//                }
+//                for (int j = 0; j < map.GetLength(0); j++)
+//                {
+                    
+//                    Console.Write(boarder[1]);
+                    
+//                    Console.Write(boarder[1]);
+//                }
+//                Console.SetCursorPosition(0, 20);
+//            }
         
-            if(scale == 2)
-            {
-                for (int i = 0; i < map.GetLength(0); i++)
-                {
+//            if(scale == 2)
+//            {
+//                for (int i = 0; i < map.GetLength(0); i++)
+//                {
 
-                    for (int j = 0; j < map.GetLength(1); j++)
-                    {
-                        Console.SetCursorPosition(1 + j, 1 + i);
-                        Console.Write(map[i, j]);
-                        Console.SetCursorPosition(1 + j, 1 + i);
-                        Console.Write(map[i, j]);
+//                    for (int j = 0; j < map.GetLength(1); j++)
+//                    {
+                        
+//                        Console.Write(map[i, j]);
+                        
+//                        Console.Write(map[i, j]);
 
                         
 
-                    }
+//                    }
 
-                    Console.WriteLine();
-                    for (int j = 0; j < map.GetLength(1); j++)
-                    {
-                        Console.SetCursorPosition(1 + j, 1 + i);
-                        Console.Write(map[i, j]);
-                        Console.SetCursorPosition(1 + j, 1 + i);
-                        Console.Write(map[i, j]);
+//                    Console.WriteLine();
+//                    for (int j = 0; j < map.GetLength(1); j++)
+//                    {
 
+//                        Console.Write(map[i, j]);
 
-                    }
-                    Console.Write("\n");
-                }
-
-                for (int i = 0; i < map.GetLength(1); i++)
-                {
-                    Console.SetCursorPosition(i + 1, 0);
-                    Console.Write(boarder[0]);
-                    Console.SetCursorPosition(i + 1, map.GetLength(0) + 1);
-                    Console.Write(boarder[0]);
-
-                }
-                for (int j = 0; j < map.GetLength(0); j++)
-                {
-                    Console.SetCursorPosition(0, j + 1);
-                    Console.Write(boarder[1]);
-                    Console.SetCursorPosition(map.GetLength(1) + 1, j + 1);
-                    Console.Write(boarder[1]);
-                }
-                Console.SetCursorPosition(0, 20);
-            }
-
-            if(scale == 3)
-            {
-                for (int i = 0; i < map.GetLength(0); i++)
-                {
-
-                    for (int j = 0; j < map.GetLength(1); j++)
-                    {
-
-                        Console.Write(map[i, j]);
-
-                        Console.Write(map[i, j]);
-
-                        Console.Write(map[i, j]);
+//                        Console.Write(map[i, j]);
 
 
-                    }
+//                    }
 
-                    Console.WriteLine();
-                    for (int j = 0; j < map.GetLength(1); j++)
-                    {
+//                    Console.Write("\n");
+//                }
 
-                        Console.Write(map[i, j]);
+//                //for (int i = 0; i < map.GetLength(1) * scale; i++)
+//                //{
+//                //    Console.SetCursorPosition(i + 1, 0);
+//                //    Console.Write(boarder[0]);
+//                //    Console.SetCursorPosition(i + 1, map.GetLength(0) * scale + 1);
+//                //    Console.Write(boarder[0]);
 
-                        Console.Write(map[i, j]);
+//                //    Thread.Sleep(1000);
+//                //}
+//                //for (int j = 0; j < map.GetLength(0) * scale; j++)
+//                //{
+//                //    Console.SetCursorPosition(0, j + 1);
+//                //    Console.Write(boarder[1]);
+//                //    Console.SetCursorPosition(map.GetLength(1) * scale, j + 1);
+//                //    Console.Write(boarder[1]);
+//                //}
 
-                        Console.Write(map[i, j]);
+                
+//                Console.ReadKey();
+//            }
+
+//            if(scale == 3)
+//            {
+//                for (int i = 0; i < map.GetLength(0); i++)
+//                {
+
+//                    for (int j = 0; j < map.GetLength(1); j++)
+//                    {
+
+//                        Console.Write(map[i, j]);
+
+//                        Console.Write(map[i, j]);
+
+//                        Console.Write(map[i, j]);
 
 
-                    }
-                    Console.Write("\n");
-                }
-            }
+//                    }
+
+//                    Console.WriteLine();
+//                    for (int j = 0; j < map.GetLength(1); j++)
+//                    {
+
+//                        Console.Write(map[i, j]);
+
+//                        Console.Write(map[i, j]);
+
+//                        Console.Write(map[i, j]);
 
 
-        }
-    }
-}
+//                    }
+//                    Console.Write("\n");
+//                }
+//            }
+
+
+//        }
+//    }
+ } 
