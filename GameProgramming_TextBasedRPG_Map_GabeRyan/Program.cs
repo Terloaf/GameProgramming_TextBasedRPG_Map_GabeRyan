@@ -31,8 +31,6 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
         static void Main(string[] args)
         {
-            Console.BufferHeight = 50;
-
             Console.ReadKey();
             DisplayMap(3);
 
@@ -61,22 +59,22 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
             Console.Write("\n");
 
-            //for (int k = 0; k < map.GetLength(1); k++)
-            //{
-            //    Console.SetCursorPosition(k + 1, 0);
-            //    Console.Write(boarder[0]);
-            //    Console.SetCursorPosition(k + 1, map.GetLength(0) + 1);
-            //    Console.Write(boarder[0]);
+            for (int k = 0; k < map.GetLength(1); k++)
+            {
+                Console.SetCursorPosition(k + 1, 0);
+                Console.Write(boarder[0]);
+                Console.SetCursorPosition(k + 1, map.GetLength(0) + 1);
+                Console.Write(boarder[0]);
 
-            //}
-            //for (int n = 0; n < map.GetLength(0); n++)
-            //{
-            //    Console.SetCursorPosition(0, n + 1);
-            //    Console.Write(boarder[1]);
-            //    Console.SetCursorPosition(map.GetLength(1) + 1, n + 1);
-            //    Console.Write(boarder[1]);
-            //}
-            //Console.SetCursorPosition(0, 20);
+            }
+            for (int n = 0; n < map.GetLength(0); n++)
+            {
+                Console.SetCursorPosition(0, n + 1);
+                Console.Write(boarder[1]);
+                Console.SetCursorPosition(map.GetLength(1) + 1, n + 1);
+                Console.Write(boarder[1]);
+            }
+            Console.SetCursorPosition(0, 20);
         }
 
         static void DisplayMap(int scale)
@@ -87,16 +85,17 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
                 Console.Write(boarder[0]);
 
             }
-            for (int BoardSide = 0; BoardSide < map.GetLength(0) * scale; BoardSide++)
-            {
-                Console.SetCursorPosition(0, BoardSide + 1);
-                Console.Write(boarder[1]);
-                Console.SetCursorPosition(map.GetLength(1) * scale + 1, BoardSide + 1);
-                Console.Write(boarder[1]);
+            //for (int BoardSide = 0; BoardSide < map.GetLength(0) * scale; BoardSide++)
+            //{
+            //    Console.SetCursorPosition(0, BoardSide + 1);
+            //    Console.Write(boarder[1]);
+            //    Console.SetCursorPosition(map.GetLength(1) * scale + 1, BoardSide + 1);
+            //    Console.Write(boarder[1]);
 
-                Thread.Sleep(100);
 
-            }
+            //    Thread.Sleep(100);
+
+            //}
 
 
 
@@ -148,6 +147,8 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
             for (int BoardSide = 0; BoardSide < map.GetLength(0) * scale; BoardSide++)
             {
+                Console.SetCursorPosition(0, BoardSide + 1);
+                Console.Write(boarder[1]);
                 Console.SetCursorPosition(map.GetLength(1) * scale + 1, BoardSide + 1);
                 Console.Write(boarder[1]);
 
