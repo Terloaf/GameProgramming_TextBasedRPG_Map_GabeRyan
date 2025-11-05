@@ -10,6 +10,8 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 {
     internal class Program
     {
+        string Mountain = "^";
+        
         static char[,] map = new char[,] // dimensions defined by following data:
         {
             {'^','^','^','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
@@ -31,10 +33,11 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
         static void Main(string[] args)
         {
+
             Console.ReadKey();
             DisplayMap(3);
 
-
+          
 
         }
         static void DisplayMap()
@@ -79,6 +82,8 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
         static void DisplayMap(int scale)
         {
+            
+
             for (int BoardTop = 0; BoardTop < (map.GetLength(1)) * scale; BoardTop++)
             {
                 Console.SetCursorPosition(BoardTop + 1, 0);
@@ -97,7 +102,7 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
             //}
 
-
+            
 
             Console.SetCursorPosition(0, 1);
 
@@ -118,15 +123,31 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
                         for (int z = 0; z < scale; z++)
                         {
-
-                            Console.Write(map[i, j]);
-
+                            if (map[i,j] == '^')
+                            {
+                               Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            }
+                            else if (map[i,j] == '`')
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                            }
+                            else if (map[i,j] == '~')
+                            {
+                                Console.ForegroundColor = ConsoleColor.Blue;
+                            }
+                            else if (map[i,j] == '*')
+                            {
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
+                                Console.Write(map[i, j]);
+                            Console.ResetColor();
                         }
 
 
                     }
                     if (x < scale)
                     {
+
                         Console.WriteLine();
                     }
                 }
@@ -143,6 +164,7 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
                 Console.SetCursorPosition(BoardTop + 1, map.GetLength(0) * scale);
                 Console.Write(boarder[0]);
 
+                
             }
 
             for (int BoardSide = 0; BoardSide < map.GetLength(0) * scale; BoardSide++)
@@ -156,8 +178,23 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
             }
 
+            Console.SetCursorPosition(map.GetLength(1) * scale + 5, 0);
+            Console.Write("' = Ground");
+            Console.SetCursorPosition(map.GetLength(1) * scale + 5, 1);
+            Console.Write("^ = Tree");
+            Console.SetCursorPosition(map.GetLength(1) * scale + 5, 2);
+            Console.Write("~ = Water");
+            Console.SetCursorPosition(map.GetLength(1) * scale + 5, 3);
+            Console.Write("* = Snow");
+            Console.ReadKey();
 
 
+            
+            
+
+            Console.Write("\n");
+
+            
 
 
 
