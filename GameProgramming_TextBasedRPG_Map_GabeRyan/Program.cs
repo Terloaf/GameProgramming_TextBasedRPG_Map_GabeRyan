@@ -10,6 +10,7 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 {
     internal class Program
     {
+        static Random random = new Random();
         string Mountain = "^";
         
         static char[,] map = new char[,] // dimensions defined by following data:
@@ -28,7 +29,7 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
             {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`'},
         };
 
-        static string[] boarder = { "_", "|" };
+        static string[] boarder = { "═", "║" };
 
 
         static void Main(string[] args)
@@ -143,7 +144,6 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
                             Console.ResetColor();
                         }
 
-
                     }
                     if (x < scale)
                     {
@@ -161,6 +161,9 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
             for (int BoardTop = 0; BoardTop < (map.GetLength(1)) * scale; BoardTop++)
             {
+
+                int randomLength = random.Next(0, map.GetLength(0));
+
                 Console.SetCursorPosition(BoardTop + 1, map.GetLength(0) * scale);
                 Console.Write(boarder[0]);
 
