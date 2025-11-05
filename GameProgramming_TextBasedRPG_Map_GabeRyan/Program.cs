@@ -32,9 +32,8 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
         {
 
 
-
             DisplayMap(3);
-
+            
 
 
         }
@@ -80,22 +79,26 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
         static void DisplayMap(int scale)
         {
+            int length = map.GetLength(0) * scale;
 
 
-
+ 
             for (int i = 0; i < map.GetLength(0); i++)
             {
-
+                
                 for (int x = 0; x < scale; x++)
                 {
 
 
                     for (int j = 0; j < map.GetLength(1); j++)
                     {
-                        
-                        for(int z = 0; z < scale; z++)
+                        Console.SetCursorPosition(1, 1);
+
+                        for (int z = 0; z < scale; z++)
                         {
+                            
                             Console.Write(map[i, j]);
+
                         }
                         
 
