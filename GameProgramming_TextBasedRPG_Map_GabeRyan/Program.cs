@@ -36,7 +36,7 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
         {
 
             Console.ReadKey();
-            DisplayMap(3);
+            DisplayMap();
 
           
 
@@ -52,8 +52,31 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
 
                 for (int j = 0; j < map.GetLength(1); j++)
                 {
-                    Console.SetCursorPosition(1 + j, 1 + i);
-                    Console.Write(map[i, j]);
+
+                    for (int z = 0; z < 1; z++)
+                    {
+                        if (map[i, j] == '^')
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        }
+                        else if (map[i, j] == '`')
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        }
+                        else if (map[i, j] == '~')
+                        {
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                        }
+                        else if (map[i, j] == '*')
+                        {
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        Console.SetCursorPosition(1 + j, 1 + i);
+                        Console.Write(map[i, j]);
+                        Console.ResetColor();
+                    }
+
+                   
 
 
                 }
@@ -78,7 +101,17 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
                 Console.SetCursorPosition(map.GetLength(1) + 1, n + 1);
                 Console.Write(boarder[1]);
             }
-            Console.SetCursorPosition(0, 20);
+            
+
+            Console.SetCursorPosition(map.GetLength(1) + 5, 0);
+            Console.Write("' = Ground");
+            Console.SetCursorPosition(map.GetLength(1) + 5, 1);
+            Console.Write("^ = Tree");
+            Console.SetCursorPosition(map.GetLength(1) + 5, 2);
+            Console.Write("~ = Water");
+            Console.SetCursorPosition(map.GetLength(1) + 5, 3);
+            Console.Write("* = Snow");
+            Console.ReadKey();
         }
 
         static void DisplayMap(int scale)
