@@ -35,7 +35,7 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
         {
 
             Console.ReadKey();
-            DisplayMap();
+            DisplayMap(3);
 
           
 
@@ -221,7 +221,7 @@ namespace GameProgramming_TextBasedRPG_Map_GabeRyan
             Console.Write("~ = Water");
             Console.SetCursorPosition(map.GetLength(1) * scale + 5, 3);
             Console.Write("* = Snow");
-            Console.SetCursorPosition(map.GetLength(1) * scale + 5, 3);
+            Console.SetCursorPosition(map.GetLength(1) * scale + 5, 4);
             Console.Write("O = Berry Bushes");
             Console.ReadKey();
 
